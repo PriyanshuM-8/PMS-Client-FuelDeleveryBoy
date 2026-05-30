@@ -8,8 +8,11 @@ import NewOrderAlert from "./components/NewOrderAlert";
 function ProtectedRoute({ children }) {
   const { deliveryBoy, loading } = useAuth();
   if (loading) return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-12 h-12 rounded-full border-4 border-orange-500/20 border-t-orange-500 animate-spin" />
+        <p className="text-slate-500 text-sm font-medium tracking-wider uppercase animate-pulse">Loading...</p>
+      </div>
     </div>
   );
   return deliveryBoy ? children : <Navigate to="/login" replace />;
@@ -25,7 +28,6 @@ function AppContent() {
         <Route path="/order/:id" element={<ProtectedRoute><OrderDetail /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      {/* Global alarm alert — sirf logged in hone par dikhega */}
       {deliveryBoy && <NewOrderAlert />}
     </>
   );
