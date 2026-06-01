@@ -240,7 +240,7 @@ export default function Dashboard() {
       </section>
 
       {/* ═══════════════════ STATS ROW ════════════════════════════════ */}
-      <section className="relative z-10 mx-auto mt-5 grid max-w-lg grid-cols-3 gap-3 px-4">
+      <section className="relative z-10 mx-auto mt-5 grid max-w-lg grid-cols-1 gap-3 px-4">
         <StatCard
           icon={Package}
           value={activeOrders.length}

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useRef, useCallback } from "react";
 import { io } from "socket.io-client";
 import { api } from "../utils/api";
+import Swal from "sweetalert2";
 
 const AuthContext = createContext(null);
 
@@ -86,6 +87,15 @@ export const AuthProvider = ({ children }) => {
     socket.on("new_order_assigned", (data) => {
       playAlarm();
       setNewOrderAlert(data);
+    });
+
+    socket.on("booking_cancelled", (data) => {
+      Swal.fire({
+        icon: "warning",
+        title: "Booking Cancelled",
+        text: "The customer has cancelled the booking.",
+        confirmButtonText: "OK"
+      });
     });
 
     return () => socket.disconnect();
