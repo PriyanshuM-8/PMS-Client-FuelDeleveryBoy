@@ -183,7 +183,7 @@ export default function Dashboard() {
 
       {/* ═══════════════════ HEADER ═══════════════════════════════════ */}
       <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#06060a]/70 backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-lg items-center justify-between px-4 py-10">
+        <div className="mx-auto flex max-w-lg items-center justify-between px-4 py-12 ">
           {/* left: avatar + name */}
           <div className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-500 text-base font-black text-white shadow-lg shadow-orange-500/25 ring-2 ring-white/10">
